@@ -1,6 +1,5 @@
 import { InputHTMLAttributes, forwardRef } from 'react'
 import { Search, X } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 interface SearchInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   onClear?: () => void
@@ -16,10 +15,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         </div>
         <input
           type="text"
-          className={cn(
-            'pl-12 pr-12 py-4 w-80 bg-white/5 border border-white/20 text-white placeholder-white/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200',
-            className
-          )}
+          className={`pl-12 pr-12 py-4 w-80 bg-white/5 border border-white/20 text-white placeholder-white/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${className || ''}`}
           ref={ref}
           {...props}
         />

@@ -1,7 +1,6 @@
 import { Filter, DollarSign, X, Tag } from 'lucide-react'
 import { ProductFilters } from '@/types/product'
 import { Button, Input, Select } from '@/components/ui'
-import { cn } from '@/lib/utils'
 
 interface FilterPanelProps {
   categories: string[]
@@ -11,19 +10,19 @@ interface FilterPanelProps {
 
 export default function FilterPanel({ categories, filters, onFilterChange }: FilterPanelProps) {
   return (
-    <div className={cn('bg-slate-800/80 backdrop-blur-lg border border-white/10 rounded-xl p-8')}>
-      <h2 className={cn('text-2xl font-bold text-white mb-8 flex items-center')}>
-        <div className={cn('w-6 h-6 mr-3 flex items-center justify-center')}>
-          <Filter className={cn('w-6 h-6 text-blue-400')} />
+    <div className='bg-slate-800/80 backdrop-blur-lg border border-white/10 rounded-xl p-8'>
+      <h2 className='text-2xl font-bold text-white mb-8 flex items-center'>
+        <div className='w-6 h-6 mr-3 flex items-center justify-center'>
+          <Filter className='w-6 h-6 text-blue-400' />
         </div>
         Filters
       </h2>
       
-      <div className={cn('space-y-8')}>
+      <div className='space-y-8'>
         <div>
-          <div className={cn('flex items-center gap-2 mb-4 text-xs font-semibold text-blue-300 uppercase tracking-wider')}>
-            <div className={cn('w-4 h-4 flex items-center justify-center')}>
-              <Tag className={cn('w-4 h-4')} />
+          <div className='flex items-center gap-2 mb-4 text-xs font-semibold text-blue-300 uppercase tracking-wider'>
+            <div className='w-4 h-4 flex items-center justify-center'>
+              <Tag className='w-4 h-4' />
             </div>
             Category
           </div>
@@ -31,9 +30,9 @@ export default function FilterPanel({ categories, filters, onFilterChange }: Fil
             value={filters.category}
             onChange={(e) => onFilterChange({ category: e.target.value })}
           >
-            <option value="" className={cn('bg-slate-700 text-white')}>All Categories</option>
+            <option value="" className='bg-slate-700 text-white'>All Categories</option>
             {categories.map((category) => (
-              <option key={category} value={category} className={cn('bg-slate-700 text-white')}>
+              <option key={category} value={category} className='bg-slate-700 text-white'>
                 {category}
               </option>
             ))}
@@ -41,15 +40,15 @@ export default function FilterPanel({ categories, filters, onFilterChange }: Fil
         </div>
 
         <div>
-          <div className={cn('flex items-center gap-2 mb-4 text-xs font-semibold text-blue-300 uppercase tracking-wider')}>
-            <div className={cn('w-4 h-4 flex items-center justify-center')}>
-              <DollarSign className={cn('w-4 h-4')} />
+          <div className='flex items-center gap-2 mb-4 text-xs font-semibold text-blue-300 uppercase tracking-wider'>
+            <div className='w-4 h-4 flex items-center justify-center'>
+              <DollarSign className='w-4 h-4' />
             </div>
             Price Range
           </div>
-          <div className={cn('space-y-4')}>
+          <div className='space-y-4'>
             <div>
-              <label className={cn('block text-xs font-semibold text-slate-300 mb-2 uppercase tracking-wider')}>Min Price</label>
+              <label className='block text-xs font-semibold text-slate-300 mb-2 uppercase tracking-wider'>Min Price</label>
               <Input
                 type="number"
                 value={filters.minPrice}
@@ -59,7 +58,7 @@ export default function FilterPanel({ categories, filters, onFilterChange }: Fil
               />
             </div>
             <div>
-              <label className={cn('block text-xs font-semibold text-slate-300 mb-2 uppercase tracking-wider')}>Max Price</label>
+              <label className='block text-xs font-semibold text-slate-300 mb-2 uppercase tracking-wider'>Max Price</label>
               <Input
                 type="number"
                 value={filters.maxPrice}
@@ -79,9 +78,9 @@ export default function FilterPanel({ categories, filters, onFilterChange }: Fil
             maxPrice: 10000,
             sortBy: 'title-asc'
           })}
-          className={cn('w-full flex items-center justify-center gap-2')}
+          className='w-full flex items-center justify-center gap-2'
         >
-          <X className={cn('w-4 h-4')} />
+          <X className='w-4 h-4' />
           Clear Filters
         </Button>
       </div>

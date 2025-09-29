@@ -28,47 +28,47 @@ export default async function ProductPage({ params }: ProductPageProps) {
   });
 
   return (
-    <div className={cn('min-h-screen')}>
-      <header className={cn('bg-slate-800/80 backdrop-blur-lg border-b border-white/10')}>
-        <div className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8')}>
-          <div className={cn('flex items-center py-6')}>
+    <div className='min-h-screen'>
+      <header className='bg-slate-800/80 backdrop-blur-lg border-b border-white/10'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='flex items-center py-6'>
             <Link 
               href="/" 
-              className={cn('flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200 group')}
+              className='flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200 group'
             >
-              <ArrowLeft className={cn('w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200')} />
+              <ArrowLeft className='w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200' />
               Back to Products
             </Link>
           </div>
         </div>
       </header>
 
-      <main className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12')}>
-        <div className={cn('grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20')}>
-          <div className={cn('aspect-square relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900')}>
+      <main className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20'>
+          <div className='aspect-square relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900'>
             <Image
               src={urlFor(product.image).width(800).height(800).url()}
               alt={product.image.alt || product.title}
               fill
-              className={cn('object-cover')}
+              className='object-cover'
             />
           </div>
 
-          <div className={cn('space-y-8')}>
+          <div className='space-y-8'>
             <div>
-              <div className={cn('mb-4')}>
-                <span className={cn('inline-block px-4 py-2 text-sm font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30')}>
+              <div className='mb-4'>
+                <span className='inline-block px-4 py-2 text-sm font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30'>
                   {product.category}
                 </span>
               </div>
-              <h1 className={cn('text-4xl font-bold text-white mb-4')}>{product.title}</h1>
+              <h1 className='text-4xl font-bold text-white mb-4'>{product.title}</h1>
             </div>
 
-            <div className={cn('flex items-center space-x-6')}>
-              <span className={cn('text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent')}>
+            <div className='flex items-center space-x-6'>
+              <span className='text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>
                 ${product.price.toFixed(2)}
               </span>
-              <div className={cn('flex items-center space-x-4')}>
+              <div className='flex items-center space-x-4'>
                 <div className={cn('w-4 h-4 rounded-full shadow-sm', product.availability ? 'bg-green-400' : 'bg-red-400')} />
                 <span className={cn('text-lg font-semibold', product.availability ? 'text-green-300' : 'text-red-300')}>
                   {product.availability ? 'In Stock' : 'Out of Stock'}
@@ -76,12 +76,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-            <div className={cn('bg-slate-800/80 backdrop-blur-lg border border-white/10 rounded-xl p-6')}>
-              <h2 className={cn('text-2xl font-bold text-white mb-4')}>Description</h2>
-              <p className={cn('text-white/80 leading-relaxed text-lg')}>{product.description}</p>
+            <div className='bg-slate-800/80 backdrop-blur-lg border border-white/10 rounded-xl p-6'>
+              <h2 className='text-2xl font-bold text-white mb-4'>Description</h2>
+              <p className='text-white/80 leading-relaxed text-lg'>{product.description}</p>
             </div>
 
-            <div className={cn('pt-6')}>
+            <div className='pt-6'>
               <button
                 disabled={!product.availability}
                 className={cn(
@@ -92,8 +92,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 )}
               >
                 {product.availability ? (
-                  <span className={cn('flex items-center justify-center')}>
-                   <PlusIcon className={cn('w-5 h-5 mr-2')} />
+                  <span className='flex items-center justify-center'>
+                   <PlusIcon className='w-5 h-5 mr-2' />
                     Add to Cart
                   </span>
                 ) : (
@@ -106,8 +106,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {relatedProducts.length > 0 && (
           <section>
-            <h2 className={cn('text-3xl font-bold text-white mb-12 text-center')}>Related Products</h2>
-            <div className={cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8')}>
+            <h2 className='text-3xl font-bold text-white mb-12 text-center'>Related Products</h2>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
               {relatedProducts.map((relatedProduct: Product) => (
                 <ProductCard key={relatedProduct._id} product={relatedProduct} />
               ))}
